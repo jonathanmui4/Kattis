@@ -6,14 +6,10 @@ typedef vector<int> v_Int; //Defining this term to be type "int vectors"
 //Depth First Search
 void dfs(int x, vector <v_Int>& Adjacency_List, v_Int& visited) {
 	visited[x] = 1; //Mark current vertex as visited
-	// for (int i = 0; i < Adjacency_List[x].size(); i++) { //Iterate through all neighbours of vertex x
-	// 	if (visited[i] != 1) { //If neighbour not visited, recursively go there
-	// 		dfs(i, Adjacency_List, visited);
-	// 	}
-	// }
-	for (auto &v : Adjacency_List[x]) { //Iterate through all neighbours of vertex x
-		if (!visited[v]) {
-			dfs(v, Adjacency_List, visited); //If neighbour not visited, recursively go there
+	for (int i = 0; i < Adjacency_List[x].size(); i++) { //Iterate through all neighbours of vertex x
+		int neighbour = Adjacency_List[x][i];
+		if (visited[neighbour] != 1) { //If neighbour not visited, recursively go there
+			dfs(neighbour, Adjacency_List, visited);
 		}
 	}
 }
